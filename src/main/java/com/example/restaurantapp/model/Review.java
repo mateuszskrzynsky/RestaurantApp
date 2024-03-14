@@ -18,4 +18,8 @@ public class Review {
     private String comment;
 
     private int rating;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 }

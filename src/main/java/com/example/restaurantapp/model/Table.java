@@ -1,11 +1,10 @@
 package com.example.restaurantapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Id;
 import lombok.Data;
+
+import java.util.Set;
 
 @Data
 @Entity
@@ -15,8 +14,15 @@ public class Table {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private int seats;
+
     private String locationDescription; // TODO <- jako możliwość wyboru stolika na podstawie układu restauracji
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 
+    @OneToMany(mappedBy = "table", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Reservation> reservations;
 }
