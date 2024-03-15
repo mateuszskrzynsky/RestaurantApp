@@ -4,12 +4,9 @@ import jakarta.persistence.*;
 
 import lombok.Data;
 
-import java.util.Set;
-
 @Data
 @Entity
-@jakarta.persistence.Table(name = "TABLE")
-public class Table {
+public class TableModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +16,10 @@ public class Table {
 
     private String locationDescription; // TODO <- jako możliwość wyboru stolika na podstawie układu restauracji
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restaurant_id")
-    private Restaurant restaurant;
-
-    @OneToMany(mappedBy = "table", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Reservation> reservations;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "restaurant_id")
+//    private Restaurant restaurant;
+//
+//    @OneToMany(mappedBy = "table", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Set<Reservation> reservations;
 }

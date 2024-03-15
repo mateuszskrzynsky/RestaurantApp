@@ -19,9 +19,15 @@ public class Reservation {
     private String customerEmail;
     @Column(name = "RESERVATION_TIME")
     private LocalDateTime reservationTime;
+    @Column(name = "CONFIRM")
+    private boolean isConfirm;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "table_id", referencedColumnName = "id")
-    private com.example.restaurantapp.model.Table table;            //TODO - sprawdzić dlaczego IJ nie gryzie się z @ManyToOne <- odpowiedź - import
+//
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "table_id", referencedColumnName = "id")
+//    private com.example.restaurantapp.model.Table table;            //TODO - sprawdzić dlaczego IJ nie gryzie się z @ManyToOne <- odpowiedź - import
 
+
+//    @OneToOne
+//    private Restaurant restaurant;
 }

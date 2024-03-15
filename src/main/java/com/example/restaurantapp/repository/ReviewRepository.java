@@ -9,10 +9,4 @@ import java.util.List;
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
-    /**
-     *
-     * @param restaurantId
-     * @return
-     */
-    List<Review> findByRestaurantId(Long restaurantId);
 }

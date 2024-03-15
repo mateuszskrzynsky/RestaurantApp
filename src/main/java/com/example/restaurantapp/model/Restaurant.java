@@ -23,6 +23,9 @@ public class Restaurant {
     @Column(name = "OPENING_HOURS")
     private String openingHours;
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<com.example.restaurantapp.model.Table> tables = new HashSet<>(); // import niezbędny!
+//    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Set<com.example.restaurantapp.model.Table> tables = new HashSet<>(); // import niezbędny!
+//
+//    @OneToOne
+//    private Reservation reservation;
 }

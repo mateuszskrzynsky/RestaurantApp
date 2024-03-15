@@ -16,15 +16,5 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-    /**
-     *
-     * @param id
-     * @return
-     */
-    @GetMapping
-    public ResponseEntity<List<Review>> getByRestaurant(@PathVariable Long id) {
-        List<Review> reviews = reviewService.findByRestaurant(id);
-        return ResponseEntity.ok(reviews);
-    }
 
 }

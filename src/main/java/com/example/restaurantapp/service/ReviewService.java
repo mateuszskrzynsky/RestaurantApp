@@ -13,23 +13,4 @@ public class ReviewService {
 
     private final ReviewRepository reviewRepository;
 
-
-    /**
-     *
-     * @param restaurantId
-     * @return
-     */
-    public List<Review> findByRestaurant(Long restaurantId) {
-        return reviewRepository.findByRestaurantId(restaurantId);
-    }
-
-
-    /**
-     * Create a review for restaurant
-     * @param review
-     * @return
-     */
-    public Review saveReview(Review review) {
-        return reviewRepository.save(review);
-    }
 }
