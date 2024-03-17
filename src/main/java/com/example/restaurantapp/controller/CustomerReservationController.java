@@ -16,27 +16,42 @@ public class CustomerReservationController {
     private final ReservationService reservationService;
 
 
+    /**
+     * Creates a new reservation based on the provided data.
+     * @param dto request data required to create the reservation
+     * @return The created reservation with HTTP status 201
+     */
     @PostMapping("/create")
     public ResponseEntity<CustomerReservationDto> createReservation(@RequestBody CustomerReservationDto dto){
        CustomerReservationDto newReservation = reservationService.createReservation(dto);
        return new ResponseEntity<>(newReservation, HttpStatus.CREATED);
     }
 
+    /**
+     * Delete a reservation by its ID
+     * @param id The ID of the reservation to delete
+     * @return HTTP status 204 with no content it the deletion was successful
+     */
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteReservation(@PathVariable Long id){
+    public ResponseEntity<CustomerReservationDto> deleteReservation(@PathVariable Long id){
         Boolean deleted =  reservationService.deleteReservation(id);
 
         if (deleted){
-            return ResponseEntity.ok().build();
+            return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
+    /**
+     * Retrive a reservation by it's ID
+     * @param id The ID of the reservation to retrive
+     * @return The requested reservation if found, with HTTP status 200
+     */
     @GetMapping("/getReservation/{id}")
     public ResponseEntity<CustomerReservationDto> getReservation(@PathVariable Long id){
-         CustomerReservationDto newReservation = reservationService.getById(id);
-        return new ResponseEntity<>(newReservation, HttpStatus.OK);
+         CustomerReservationDto reservation = reservationService.getById(id);
+        return new ResponseEntity<>(reservation, HttpStatus.OK);
     }
 
 

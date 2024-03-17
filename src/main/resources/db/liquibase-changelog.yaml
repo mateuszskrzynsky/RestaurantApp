@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 01_create_table_reservation
+      author: postgres
+      changes:
+        - sqlFile:
+            path: scripts/01_create_table_reservation.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 02_create_table_restaurant
+      author: postgres
+      changes:
+        - sqlFile:
+            path: scripts/02_create_table_restaurant.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 03_create_table_review
+      author: postgres
+      changes:
+        - sqlFile:
+            path: scripts/03_create_table_review.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 04_create_table_table
+      author: postgres
+      changes:
+        - sqlFile:
+            path: scripts/03_create_table_table.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true

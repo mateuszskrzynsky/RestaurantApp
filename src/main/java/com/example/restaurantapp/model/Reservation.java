@@ -22,12 +22,12 @@ public class Reservation {
     @Column(name = "CONFIRM")
     private boolean isConfirm;
 
-//
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "table_id", referencedColumnName = "id")
-//    private com.example.restaurantapp.model.Table table;            //TODO - sprawdzić dlaczego IJ nie gryzie się z @ManyToOne <- odpowiedź - import
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "table_id", referencedColumnName = "id")
+    private TableModel table;            //TODO - sprawdzić dlaczego IJ nie gryzie się z @ManyToOne <- odpowiedź - import
 
 
-//    @OneToOne
-//    private Restaurant restaurant;
+    @OneToOne
+    private Restaurant restaurant;
 }

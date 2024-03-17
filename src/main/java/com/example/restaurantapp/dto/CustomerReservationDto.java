@@ -11,13 +11,13 @@ public class CustomerReservationDto {
 
     private Long id;
 
-    LocalDateTime reservationTime;
+    private LocalDateTime reservationTime;
 
-    Boolean isConfirm;
+    private Boolean isConfirm;
 
-    String customerEmail;
+    private String customerEmail;
 
-    String customerName;
+    private String customerName;
 
 
 

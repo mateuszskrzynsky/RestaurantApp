@@ -20,12 +20,14 @@ public class Restaurant {
     private String name;
     @Column(name = "ADDRESS")
     private String address;
+    @Column(name = "KITCHEN_TYPE")
+    private KitchenType kitchenType;
     @Column(name = "OPENING_HOURS")
     private String openingHours;
 
-//    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Set<com.example.restaurantapp.model.Table> tables = new HashSet<>(); // import niezbędny!
-//
-//    @OneToOne
-//    private Reservation reservation;
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TableModel> tables = new HashSet<>();
+
+    @OneToOne
+    private Reservation reservation;
 }

@@ -1,5 +1,7 @@
 package com.example.restaurantapp.service;
 
+import com.example.restaurantapp.dto.CustomerReservationDto;
+import com.example.restaurantapp.model.Reservation;
 import com.example.restaurantapp.model.Restaurant;
 import com.example.restaurantapp.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +18,7 @@ public class RestaurantService {
 
     /**
      * Find all Restaurants from db
-     * @return
+     * @return The found Restaurant objects
      */
 
     public List<Restaurant> findAllRestaurants() {
@@ -39,6 +41,17 @@ public class RestaurantService {
      */
     public void deleteRestaurant(Long id) {
         restaurantRepository.deleteById(id);
+    }
+
+    /**
+     *Creates a new Restaurant
+     * @param restaurant The unique identifier for the new restaurant
+     * @return The newly created Restaurant object
+     */
+    public Restaurant createRestaurant(Restaurant restaurant) {
+        Restaurant newRestaurant = new Restaurant();
+        newRestaurant = restaurantRepository.save(newRestaurant);
+        return newRestaurant;
     }
 
 
